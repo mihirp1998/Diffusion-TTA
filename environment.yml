@@ -1,0 +1,32 @@
+name: diff_tta
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - numpy
+  - pytorch=2.0.0
+  - pytorch-cuda=11.7
+  - torchvision=0.15.0
+  - pip:
+    - git+https://github.com/openai/CLIP.git
+    - ftfy
+    - regex
+    - mergedeep
+    - matplotlib
+    - wandb
+    - tqdm
+    - opencv-python
+    - hydra-core
+    - ipdb
+    - accelerate==0.18.0
+    - transformers==4.28.1
+    - xformers==0.0.19
+    - omegaconf==2.2.3
+    - diffusers==0.16.0
+    - einops==0.6.0
+    - timm==0.6.11
+    - datasets

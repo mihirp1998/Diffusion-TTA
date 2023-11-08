@@ -1,0 +1,23 @@
+# @package _global_
+# Hyper-parameters for using DiT as diffusion backbone
+seed: 0
+
+model:
+  class_arch: convnext_tiny
+  adapt_only_classifier: False
+  use_dit: True
+
+tta:
+  adapt_topk: -1
+  gradient_descent:
+    base_learning_rate: 5e-3 # training lr for detr
+    train_steps: 5 # training iteration for detr
+    accum_iter: 12
+    optimizer: sgd
+
+input:
+  disc_img_crop: 224
+  disc_img_resize: 232
+  sd_img_res: 256
+  batch_size: 15
+  subsample: 3

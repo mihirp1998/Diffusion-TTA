@@ -1,0 +1,22 @@
+# @package _global_
+# Hyper-parameters for using Stable Diffusion as diffusion backbone
+seed: 42
+
+model:
+  class_arch: clipl14
+  adapt_only_classifier: True
+
+tta:
+  adapt_topk: -1
+  gradient_descent:
+    base_learning_rate: 5e-3
+    train_steps: 5 # training iteration for detr
+    accum_iter: 12
+    optimizer: sgd 
+
+input:
+  disc_img_crop: 224
+  disc_img_resize: 224
+  sd_img_res: 512
+  batch_size: 16
+  subsample: 5

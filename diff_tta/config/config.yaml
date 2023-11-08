@@ -1,0 +1,62 @@
+defaults:
+  - _self_  # Override values within this file with values in selected files.
+use_cuda: True
+gpu: -1
+seed: null
+device: cuda
+workers: 4
+log_freq: 10
+
+# Parameters for wandb
+wandb:
+  mode: online
+  project: diffusion_tta
+
+# General hyper-parameters for defining the classifier, diffusion model, U-Net
+# autoencoder
+model:
+  sd_version: 1-4 # Stable Diffusion version
+  use_dit: False # use DiT as diffusion backbone
+  override_total_steps: -1 # some parameters for DiT
+  freeze_class_embeds: True # freeze text class embeddings
+  freeze_vae: False # freeze VQVAE
+  class_arch: resnet18 # classifier backbone
+  use_flash: False # use flash attention in Stable Diffusion
+  adapt_only_classifier: False # only adapt the classifier
+
+# Hyper-parameters for TTA
+tta:
+  adapt_topk: -1 # only adapt topk classes
+  loss: mse # distance metric for diffusion loss
+  model: diff_tta.models.tta.TTAGradientDescent_Class
+  online: False # online adaptation
+  use_same_noise_among_timesteps: False # use the same noise for all timesteps
+  random_timestep_per_iteration: True # randomly sample timesteps
+  rand_timestep_equal_int: False # split evenly from a random timestep to total_steps
+  gradient_descent:
+    base_learning_rate: 1e-5 # training lr for detr
+    weight_decay: 0 # training wd for detr
+    train_steps: 100 # training iteration for detr
+    accum_iter: 1
+    optimizer: adam
+    optimizer_momentum: 0.9
+
+# Hyper-parameters for input
+input:
+  root_path: /projects/katefgroup/datasets/ # CHANGE by yourself
+  dataset_name: ImageNetDataset
+  image_height: 64
+  image_width: 64
+  batch_size: 40 # how many data to fit in one gpu
+  disc_img_crop: 224
+  disc_img_resize: 232
+  sd_img_res: 512
+  use_objectnet: False
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  subsample: 3 # number of samples per category
+  winoground_use_auth_token: null
+
+hydra:
+  run:
+    dir: ./outputs/${now:%Y-%m-%d}/${now:%H-%M-%S.%f}
