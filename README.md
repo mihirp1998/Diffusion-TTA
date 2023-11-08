@@ -29,6 +29,10 @@ Our model improves classification test performance without the need of ground-tr
 ![alt text](figures/tta_1.gif)
 ![alt text](figures/tta_2.gif)
 
+## Features
+- [x] Adaptation of ImageNet-trained classifiers with DiT
+- [ ] Adaptation of CLIP models with Stable Diffusion
+
 ## Installation 
 Create a conda environment with the following command:
 ```bash
