@@ -7,7 +7,7 @@
 [![Website](https://img.shields.io/badge/🌎-Website-blue.svg)](https://diffusion-tta.github.io)
 </div>
 
-This is the official implementation of the paper [Test-time Adaptation with Diffusion Models]() by Mihir Prabhudesai, Tsung-Wei Ke, Alexander Li, Deepak Pathak, and Katerina Fragkiadaki.
+This is the official implementation of the paper [Test-time Adaptation of Discriminative Models via Diffusion Generative Feedback](https://diffusion-tta.github.io/) by Mihir Prabhudesai, Tsung-Wei Ke, Alexander Li, Deepak Pathak, and Katerina Fragkiadaki.
 <!-- DESCRIPTION -->
 
 ## Abstract
@@ -19,15 +19,15 @@ We achieve this by modulating the conditioning of the diffusion model using the 
 
 ## Diffusion-TTA
 
-![alt text](figures/arch.mp4)
-
 **Generative diffusion models are great test-time adapters for discriminative models.** Our method consists of discriminative and generative modules. Given an image $x$, the discriminative model $f_{\theta}$ predicts task output $y$. The task output $y$ is transformed into condition $c$. Finally, we use the generative diffusion model $\epsilon_{\phi}$ to measure the likelihood of the input image, conditioned on $c$. This consists of using the diffusion model $\epsilon_{\phi}$ to predict the added noise $\epsilon$ from the noisy image $x_t$ and condition $c$. We maximize the image likelihood using the diffusion loss by updating the discriminative and generative model weights via backpropagation. 
 
 
-![alt text](figures/tta_1.gif)
-![alt text](figures/tta_2.gif)
+![alt text](figures/arch.gif)
 
 Our model improves classification test performance without the need of ground-truth labels. Classification errorr are corrected by minimizing the diffusion loss.
+
+![alt text](figures/tta_1.gif)
+![alt text](figures/tta_2.gif)
 
 ## Installation 
 Create a conda environment with the following command:
