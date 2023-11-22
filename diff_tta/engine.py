@@ -38,7 +38,7 @@ def prepare_vae_latent(batch, autoencoder, image_renormalizer):
     # Renormalize the image to be consistent with the autoencoder
     renormed_image = image_renormalizer(batch['image_gen']).detach()
     x0 = autoencoder.encode(renormed_image).latent_dist.mean
-    latent = x0 *  0.18215 # FIXME: What is this magic number? <>
+    latent = x0 *  0.18215
     return latent
 
 

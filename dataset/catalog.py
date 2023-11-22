@@ -134,7 +134,7 @@ class DatasetCatalog:
         self.ImageNetCDataset = {   
             "target": "dataset.dataset_class_label.ImageNetCDataset",
             "train_params":dict(
-                root=config.input.root_path+'/imagenet_c',
+                root=config.input.root_path+'/ImageNet-C',
                 classification_transform=self.classification_transforms,
                 diffusion_transform=self.diffusion_transforms,
                 test_classification_transform=self.test_classification_transforms,

@@ -42,12 +42,37 @@ conda activate diff_tta
 ```
 
 ### Prepare DiT
-Clone our DiT branch forked from the official repo.  We adapt the original code so that we vary the class text embeddings.
+Clone our DiT branch forked from the official repo.  We adapt the original code so that we vary the class text embeddings.  We modify the DiT code base to enable conditioning of class text embeddings weighted average with predicted probabilities.
 ```
 git clone https://github.com/mihirp1998/DiT.git
 mv DiT diff_tta/models
 mkdir pretrained_models
 ```
+
+## Prepare Datasets
+
+By default, we expect all datasets put under the local `data/` directory.  You can set [`input.root_path`](https://github.com/mihirp1998/Diffusion-TTA/blob/3c1eda48d31c42f08cb2d75da36e8d18077ec7e0/diff_tta/config/config.yaml#L46) to your local data directory.
+```
+# By default, our code base expect
+./data/
+   |-------- imagenet-a/
+   |-------- imagenet-r/
+   |-------- ImageNet/val/
+   |-------- ImageNet-C/gaussian_noise/5
+   |-------- imagenetv2-matched-frequency-format-val/
+   |-------- imagenet-styletransfer-v2/val
+```
+
+We provide a bashscript to download ImageNet-A and ImageNet-R
+```
+bash download_dataset.sh
+```
+
+For ImageNet-v2, the testing set is hosted on [HuggingFace](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main).  Please download `imagenetv2-matched-frequency.tar.gz` and extract to `./data/`.
+
+For ImageNet-C, please follow the authors' [instruction](https://github.com/hendrycks/robustness) to download and extract the dataset.
+
+For Stylized-ImageNet, we provide the rendered [validation set](https://drive.google.com/drive/folders/1TFCBRkA8r5ik7uxIYIXaUbGbo1glUl5h?usp=drive_link).
 
 ## Commands to Get Started
 Our classification results vary with the randomly sampled noises and timesteps during TTA.  To reproduce our results, we provide the commands used in each experiment. See [Getting_Startted.md](./GETTING_STARTED.md) for details.

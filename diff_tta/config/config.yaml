@@ -6,6 +6,7 @@ seed: null
 device: cuda
 workers: 4
 log_freq: 10
+save_results: False # save before and after-TTA results to files
 
 # Parameters for wandb
 wandb:
@@ -43,7 +44,7 @@ tta:
 
 # Hyper-parameters for input
 input:
-  root_path: /projects/katefgroup/datasets/ # CHANGE by yourself
+  root_path: ./data/ # CHANGE by yourself
   dataset_name: ImageNetDataset
   image_height: 64
   image_width: 64

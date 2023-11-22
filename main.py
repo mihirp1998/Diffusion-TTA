@@ -122,15 +122,16 @@ def tta_one_epoch(config, dataloader, tta_model, optimizer, scaler,
         stats_folder_name = f'stats/{wandb_run_name}/'
         os.makedirs(stats_folder_name, exist_ok=True)
         
-        stats_dict = {}
-        stats_dict['accum_iter'] = config.tta.gradient_descent.accum_iter
-        stats_dict['filename'] = batch['filepath']
-        stats_dict['losses'] = losses
-        stats_dict['gt_idx'] = batch['class_idx'][0]
-        stats_dict = merge(stats_dict, before_tta_stats_dict, after_tta_stats_dict)
-        file_index = int(batch['index'].squeeze())
-        store_filename = f"{stats_folder_name}/{file_index:06d}.p"
-        pickle.dump(stats_dict, open(store_filename, 'wb'))
+        if config.save_results:
+            stats_dict = {}
+            stats_dict['accum_iter'] = config.tta.gradient_descent.accum_iter
+            stats_dict['filename'] = batch['filepath']
+            stats_dict['losses'] = losses
+            stats_dict['gt_idx'] = batch['class_idx'][0]
+            stats_dict = merge(stats_dict, before_tta_stats_dict, after_tta_stats_dict)
+            file_index = int(batch['index'].squeeze())
+            store_filename = f"{stats_folder_name}/{file_index:06d}.p"
+            pickle.dump(stats_dict, open(store_filename, 'wb'))
 
         wandb.log(wandb_dict, step=img_ind)
 

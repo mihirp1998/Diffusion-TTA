@@ -1,0 +1,14 @@
+# caches
+__pycache__
+*.pyc
+
+# output directory
+outputs/
+wandb/
+
+# data directory
+data/
+
+# model directory
+DiT/
+pretrained_models/

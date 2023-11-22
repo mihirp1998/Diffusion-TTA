@@ -127,7 +127,7 @@ class TTABase_Class(nn.Module):
         probs = logits.softmax(-1)
         max_idx = probs.argmax(-1)
 
-        K = 5 if self.config.tta.adapt_topk == -1 else self.config.tta.adapt_topk
+        K = probs.shape[-1] if self.config.tta.adapt_topk == -1 else self.config.tta.adapt_topk
         topk_idx = probs.argsort(descending=True)[:, :K]
 
         if self.classes is not None:
