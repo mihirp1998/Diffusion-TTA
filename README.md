@@ -3,7 +3,7 @@
 <!-- TITLE -->
 # **Test-time Adaptation of Discriminative Models via Diffusion Generative Feedback**
 
-<!-- [![arXiv](https://img.shields.io/badge/cs.LG-arXiv:-b31b1b.svg)]() -->
+ [![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2311.16102-b31b1b.svg)](https://arxiv.org/abs/2311.16102)
 [![Website](https://img.shields.io/badge/🌎-Website-blue.svg)](https://diffusion-tta.github.io)
 </div>
 
