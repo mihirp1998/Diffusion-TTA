@@ -26,8 +26,7 @@ We achieve this by modulating the conditioning of the diffusion model using the 
 
 Our model improves classification test performance without the need of ground-truth labels. Classification errorr are corrected by minimizing the diffusion loss.
 
-![alt text](figures/tta_1.gif)
-![alt text](figures/tta_2.gif)
+![alt text](figures/tta_3.gif)
 
 ## Features
 - [x] Adaptation of ImageNet-trained classifiers with DiT
