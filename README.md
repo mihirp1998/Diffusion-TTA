@@ -5,7 +5,12 @@
 
  [![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2311.16102-b31b1b.svg)](https://arxiv.org/abs/2311.16102)
 [![Website](https://img.shields.io/badge/🌎-Website-blue.svg)](https://diffusion-tta.github.io)
+
+![alt text](figures/poster.gif)
+
 </div>
+
+
 
 This is the official implementation of the paper [Diffusion-TTA: Test-time Adaptation of Discriminative Models via Generative Feedback](https://diffusion-tta.github.io/) by Mihir Prabhudesai, Tsung-Wei Ke, Alexander Li, Deepak Pathak, and Katerina Fragkiadaki.
 <!-- DESCRIPTION -->
@@ -22,11 +27,12 @@ We achieve this by modulating the conditioning of the diffusion model using the 
 **Generative diffusion models are great test-time adapters for discriminative models.** Our method consists of discriminative and generative modules. Given an image $x$, the discriminative model $f_{\theta}$ predicts task output $y$. The task output $y$ is transformed into condition $c$. Finally, we use the generative diffusion model $\epsilon_{\phi}$ to measure the likelihood of the input image, conditioned on $c$. This consists of using the diffusion model $\epsilon_{\phi}$ to predict the added noise $\epsilon$ from the noisy image $x_t$ and condition $c$. We maximize the image likelihood using the diffusion loss by updating the discriminative and generative model weights via backpropagation. 
 
 
-![alt text](figures/arch.gif)
+![alt text](figures/diff_tta_method.gif)
+
 
 Our model improves classification test performance without the need of ground-truth labels. Classification errorr are corrected by minimizing the diffusion loss.
 
-![alt text](figures/tta_3.gif)
+
 
 ## Features
 - [x] Adaptation of ImageNet-trained classifiers with DiT
