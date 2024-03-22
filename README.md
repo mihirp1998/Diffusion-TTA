@@ -37,7 +37,7 @@ Our model improves classification test performance without the need of ground-tr
 ## Features
 - [x] Adaptation of ImageNet-trained classifiers with DiT
 - [x] Adaptation of CLIP models with Stable Diffusion
-- [] Integration of Complex prompts and finetuning Stable Diffusion via LoRA
+- [ ] Integration of Complex prompts and finetuning Stable Diffusion via LoRA
 
 ## Installation 
 Create a conda environment with the following command:
