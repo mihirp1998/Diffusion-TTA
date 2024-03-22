@@ -36,7 +36,7 @@ Our model improves classification test performance without the need of ground-tr
 
 ## Features
 - [x] Adaptation of ImageNet-trained classifiers with DiT
-- [ ] Adaptation of CLIP models with Stable Diffusion
+- [x] Adaptation of CLIP models with Stable Diffusion
 
 ## Installation 
 Create a conda environment with the following command:
