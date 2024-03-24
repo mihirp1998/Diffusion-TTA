@@ -13,6 +13,16 @@ Run `python main.py +experiment=dit` for experiments using DiT as the diffusion 
 Empirically, we found that using larger total batch size results in more stable classification improvement.  However, it takes longer time for TTA with larger batch size.  Also, we found that some backbones are better with `sgd` optimizer than `adam` optimizer.
 
 ## Commands to get started
+### Clip/Stable Diffusion
+
+<details>
+  <summary>Single Sample TTA on FGVC-Aircraft and other datasets</summary>
+```
+python main.py +experiment=sd model.class_arch=clipb32 input.dataset_name=FGVCAircraftSubset
+```
+</details>
+
+
 
 ### ConvNext-Large/DiT
 ConvNext-Tiny works better with `adam` optimizer
